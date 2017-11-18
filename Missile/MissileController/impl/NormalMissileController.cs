@@ -46,12 +46,8 @@ namespace MissileText.MissileController
         private Timer tmrConsumerMissile;
 
         public NormalMissileController()
-        { 
-            //减少闪烁
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.DoubleBuffer, true); //双缓冲
-            UpdateStyles();
+        {
+            this.InitializeComponent();
             //不在任务栏中显示
             this.ShowInTaskbar = false;
             //最大化，无边框
@@ -346,6 +342,19 @@ namespace MissileText.MissileController
         public bool isStarted()
         {
             return this.started;
+        }
+        /// <summary>
+        /// 缩小窗体
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // NormalMissileController
+            // 
+            this.ClientSize = new System.Drawing.Size(0, 0);
+            this.Name = "NormalMissileController";
+            this.ResumeLayout(false);
         }
     }
 }

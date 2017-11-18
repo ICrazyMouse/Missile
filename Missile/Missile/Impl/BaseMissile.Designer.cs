@@ -34,15 +34,15 @@
             // 
             // timerUpdate
             // 
-            this.timerUpdate.Interval = 10;
+            this.timerUpdate.Interval = 16;
             this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
             // 
-            // BaseFormMissile
+            // BaseMissile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "BaseFormMissile";
+            this.ClientSize = new System.Drawing.Size(0, 0);
+            this.Name = "BaseMissile";
             this.Text = "BaseFormMissile";
             this.ResumeLayout(false);
 

@@ -58,6 +58,12 @@ namespace MissileText.Missile.Impl
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
             this.NextFrame();
+            if(!this.Visible)
+            {
+                //显示，会初始化Location0,0
+                this.Show();
+                this.Location = this.showLocation;
+            }
         }
         /// <summary>
         /// 类型
@@ -79,9 +85,6 @@ namespace MissileText.Missile.Impl
         /// </summary>
         public virtual void Start()
         {
-            //显示，会初始化Location0,0
-            this.Show();
-            this.Location = this.showLocation;
             //修改窗体大小
             this.Size = this.RenderSize();
             //初始化画面位图
@@ -134,6 +137,7 @@ namespace MissileText.Missile.Impl
         /// <returns></returns>
         public virtual bool IsShowAll()
         {
+            if (!this.Visible) return false;
             return (Screen.PrimaryScreen.Bounds.Width - this.Location.X) > (this.Size.Width + 50);
         }
         /// <summary>

@@ -32,6 +32,7 @@
             this.btnTextTest = new System.Windows.Forms.Button();
             this.btnImageTest = new System.Windows.Forms.Button();
             this.btnFullScreenTest = new System.Windows.Forms.Button();
+            this.serverConnector1 = new MissileText.Server.ServerConnector();
             this.SuspendLayout();
             // 
             // btnToggleMissile
@@ -78,11 +79,21 @@
             this.btnFullScreenTest.UseVisualStyleBackColor = true;
             this.btnFullScreenTest.Click += new System.EventHandler(this.btnFullScreenTest_Click);
             // 
+            // serverConnector1
+            // 
+            this.serverConnector1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.serverConnector1.Location = new System.Drawing.Point(12, 13);
+            this.serverConnector1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.serverConnector1.Name = "serverConnector1";
+            this.serverConnector1.Size = new System.Drawing.Size(367, 89);
+            this.serverConnector1.TabIndex = 5;
+            // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 368);
+            this.Controls.Add(this.serverConnector1);
             this.Controls.Add(this.btnFullScreenTest);
             this.Controls.Add(this.btnImageTest);
             this.Controls.Add(this.btnTextTest);
@@ -103,5 +114,6 @@
         private System.Windows.Forms.Button btnTextTest;
         private System.Windows.Forms.Button btnImageTest;
         private System.Windows.Forms.Button btnFullScreenTest;
+        private Server.ServerConnector serverConnector1;
     }
 }
