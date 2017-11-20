@@ -1,0 +1,16 @@
+{
+  "name": "missile_server",
+  "version": "1.0.0",
+  "description": "WS服务器",
+  "main": "MissileServer.js",
+  "dependencies": {
+    "http-server": "^0.10.0",
+    "ws": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node MissileServer.js"
+  },
+  "author": "Mario",
+  "license": "ISC"
+}
