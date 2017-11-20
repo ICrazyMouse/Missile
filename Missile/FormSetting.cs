@@ -1,6 +1,8 @@
 ﻿using MissileText.Missile;
+using MissileText.Missile.Api;
 using MissileText.Missile.Impl;
 using MissileText.MissileController;
+using MissileText.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -46,6 +48,35 @@ namespace MissileText
 
         }
         /// <summary>
+        /// 分发Message
+        /// </summary>
+        /// <param name="message"></param>
+        private void serverConnector_Message(string message)
+        {
+            Console.WriteLine("Recive New Missile");
+            Action createMissile = () =>
+            {
+                DeliverBean bean = JSON.toObject<DeliverBean>(message);
+                IMissile missile = null;
+                switch (bean.missileType)
+                {
+                    case MISSILE_TYPE.TEXT:
+                        missile = new TextMissile(bean.text);
+                        break;
+                    case MISSILE_TYPE.IMAGE:
+                        missile = new ImageMissile(bean.base64Img);
+                        break;
+                    case MISSILE_TYPE.FS_IMAGE:
+                        missile = new FullScreenMissile(bean.base64Img, bean.text);
+                        break;
+                }
+                this.missileController.SendMissile(missile);
+            };
+            this.BeginInvoke(createMissile);
+        }
+
+        #region TEST
+        /// <summary>
         /// 测试文本
         /// </summary>
         /// <param name="sender"></param>
@@ -79,5 +110,6 @@ namespace MissileText
                 "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈");
             this.missileController.SendMissile(fsImgMissile);
         }
+        #endregion
     }
 }

@@ -17,6 +17,8 @@ namespace MissileText.Missile.Impl
         private GDIRender gdiRender;
         //Show() 方法会初始化Location为0,0
         private Point showLocation;
+        //是否已经展示过
+        private bool isShowed = false;
         public BaseMissile()
         {
             InitializeComponent();
@@ -58,10 +60,11 @@ namespace MissileText.Missile.Impl
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
             this.NextFrame();
-            if(!this.Visible)
+            if(!this.Visible && !this.isShowed)
             {
                 //显示，会初始化Location0,0
                 this.Show();
+                this.isShowed = true;
                 this.Location = this.showLocation;
             }
         }

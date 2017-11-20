@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labServerUrlText = new System.Windows.Forms.Label();
             this.txtServerUrl = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -35,6 +36,11 @@
             this.labInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gropSeverSetting = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tmrReconnect = new System.Windows.Forms.Timer(this.components);
+            this.btnStop = new System.Windows.Forms.Button();
             this.gropSeverSetting.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,17 +58,18 @@
             this.txtServerUrl.Location = new System.Drawing.Point(118, 20);
             this.txtServerUrl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtServerUrl.Name = "txtServerUrl";
-            this.txtServerUrl.Size = new System.Drawing.Size(137, 23);
+            this.txtServerUrl.Size = new System.Drawing.Size(229, 23);
             this.txtServerUrl.TabIndex = 1;
+            this.txtServerUrl.Text = "localhost:8181/missile";
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(261, 19);
+            this.btnConnect.Location = new System.Drawing.Point(353, 17);
             this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(81, 48);
+            this.btnConnect.Size = new System.Drawing.Size(81, 75);
             this.btnConnect.TabIndex = 2;
-            this.btnConnect.Text = "连接";
+            this.btnConnect.Text = "启动";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
@@ -79,7 +86,7 @@
             // 
             this.labInfo.AutoSize = true;
             this.labInfo.ForeColor = System.Drawing.Color.Red;
-            this.labInfo.Location = new System.Drawing.Point(82, 51);
+            this.labInfo.Location = new System.Drawing.Point(82, 78);
             this.labInfo.Name = "labInfo";
             this.labInfo.Size = new System.Drawing.Size(44, 17);
             this.labInfo.TabIndex = 5;
@@ -88,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 51);
+            this.label1.Location = new System.Drawing.Point(41, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 6;
@@ -96,18 +103,71 @@
             // 
             // gropSeverSetting
             // 
+            this.gropSeverSetting.Controls.Add(this.btnStop);
+            this.gropSeverSetting.Controls.Add(this.label4);
+            this.gropSeverSetting.Controls.Add(this.txtRoomId);
+            this.gropSeverSetting.Controls.Add(this.label3);
             this.gropSeverSetting.Controls.Add(this.btnConnect);
             this.gropSeverSetting.Controls.Add(this.label1);
             this.gropSeverSetting.Controls.Add(this.labServerUrlText);
             this.gropSeverSetting.Controls.Add(this.labInfo);
             this.gropSeverSetting.Controls.Add(this.txtServerUrl);
             this.gropSeverSetting.Controls.Add(this.label2);
-            this.gropSeverSetting.Location = new System.Drawing.Point(3, 3);
+            this.gropSeverSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gropSeverSetting.Location = new System.Drawing.Point(0, 0);
+            this.gropSeverSetting.MaximumSize = new System.Drawing.Size(522, 104);
+            this.gropSeverSetting.MinimumSize = new System.Drawing.Size(522, 104);
             this.gropSeverSetting.Name = "gropSeverSetting";
-            this.gropSeverSetting.Size = new System.Drawing.Size(350, 79);
+            this.gropSeverSetting.Size = new System.Drawing.Size(522, 104);
             this.gropSeverSetting.TabIndex = 7;
             this.gropSeverSetting.TabStop = false;
             this.gropSeverSetting.Text = "服务器设置";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "房间ID:";
+            // 
+            // txtRoomId
+            // 
+            this.txtRoomId.Location = new System.Drawing.Point(143, 48);
+            this.txtRoomId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtRoomId.Name = "txtRoomId";
+            this.txtRoomId.Size = new System.Drawing.Size(204, 23);
+            this.txtRoomId.TabIndex = 8;
+            this.txtRoomId.Text = "001";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(76, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "roomId=";
+            // 
+            // tmrReconnect
+            // 
+            this.tmrReconnect.Interval = 5000;
+            this.tmrReconnect.Tick += new System.EventHandler(this.tmrReconnect_Tick);
+            // 
+            // btnStop
+            // 
+            this.btnStop.BackColor = System.Drawing.Color.Red;
+            this.btnStop.Enabled = false;
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnStop.Location = new System.Drawing.Point(435, 17);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(81, 75);
+            this.btnStop.TabIndex = 10;
+            this.btnStop.Text = "停止";
+            this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // ServerConnector
             // 
@@ -117,7 +177,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ServerConnector";
-            this.Size = new System.Drawing.Size(356, 84);
+            this.Size = new System.Drawing.Size(522, 104);
             this.gropSeverSetting.ResumeLayout(false);
             this.gropSeverSetting.PerformLayout();
             this.ResumeLayout(false);
@@ -133,5 +193,10 @@
         private System.Windows.Forms.Label labInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gropSeverSetting;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRoomId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer tmrReconnect;
+        private System.Windows.Forms.Button btnStop;
     }
 }

@@ -8,13 +8,13 @@ namespace MissileText
     /// </summary>
     //JSON类
 
-    class Message
+    class DeliverBean
     {
         //消息类型
-        private MISSILE_TYPE type { set; get; }
+        public MISSILE_TYPE missileType { set; get; }
         //文本数据
-        private String text { set; get; }
+        public String text { set; get; }
         //图片数据
-        private String base64Img { set; get; }
+        public String base64Img { set; get; }
     }
 }

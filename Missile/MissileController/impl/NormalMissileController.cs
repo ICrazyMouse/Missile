@@ -294,28 +294,31 @@ namespace MissileText.MissileController
         /// <param name="obj"></param>
         /// <param name="pipe"></param>
         private void addNewMissile(IMissile obj, int pipe) {
-            this.Controls.Add((Control)obj);
-            switch (obj.Type())
-            {
-                case MISSILE_TYPE.TEXT:
-                    textQueueList.Remove(obj);
-                    obj.SetStartPos(new Point(Screen.PrimaryScreen.Bounds.Width, pipe * textPipeHeight));
-                    obj.Start();
-                    this.textRenderList.Add(obj);
-                    break;
-                case MISSILE_TYPE.IMAGE:
-                    imageQueueList.Remove(obj);
-                    obj.SetStartPos(new Point(Screen.PrimaryScreen.Bounds.Width, pipe * imgPipeHeight));
-                    obj.Start();
-                    this.imgRenderList.Add(obj);
-                    break;
-                case MISSILE_TYPE.FS_IMAGE:
-                    ((Control)obj).BringToFront();
-                    this.fullScreenQueueList.Remove(obj);
-                    obj.Start();
-                    this.fsImgRenderList.Add(obj);
-                    break;
-            }
+            Action addMissile = () => {
+                this.Controls.Add((Control)obj);
+                switch (obj.Type())
+                {
+                    case MISSILE_TYPE.TEXT:
+                        textQueueList.Remove(obj);
+                        obj.SetStartPos(new Point(Screen.PrimaryScreen.Bounds.Width, pipe * textPipeHeight));
+                        obj.Start();
+                        this.textRenderList.Add(obj);
+                        break;
+                    case MISSILE_TYPE.IMAGE:
+                        imageQueueList.Remove(obj);
+                        obj.SetStartPos(new Point(Screen.PrimaryScreen.Bounds.Width, pipe * imgPipeHeight));
+                        obj.Start();
+                        this.imgRenderList.Add(obj);
+                        break;
+                    case MISSILE_TYPE.FS_IMAGE:
+                        ((Control)obj).BringToFront();
+                        this.fullScreenQueueList.Remove(obj);
+                        obj.Start();
+                        this.fsImgRenderList.Add(obj);
+                        break;
+                }
+            };
+            this.BeginInvoke(addMissile);
         }
         /// <summary>
         /// 开始
@@ -324,8 +327,8 @@ namespace MissileText.MissileController
         {
             this.Show();
             this.started = true;
-            tmrCheckMissile.Start();
-            tmrConsumerMissile.Start();
+            this.tmrCheckMissile.Start();
+            this.tmrConsumerMissile.Start();
         }
         /// <summary>
         /// 停止

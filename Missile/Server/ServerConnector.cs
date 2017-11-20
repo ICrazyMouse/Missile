@@ -50,12 +50,16 @@ namespace MissileText.Server
                     return;
                 }
                 this.labServerUrlText.ForeColor = Color.Black;
-                wsc = new WebSocket("ws://" + this.txtServerUrl.Text);
+                wsc = new WebSocket("ws://" + this.txtServerUrl.Text + "?roomId=" + txtRoomId.Text + "&type=consumer");
                 wsc.OnMessage += Wsc_OnMessage;
                 wsc.OnOpen += Wsc_OnOpen;
                 wsc.OnError += Wsc_OnError;
                 wsc.OnClose += Wsc_OnClose;
                 wsc.Connect();
+                this.btnConnect.Enabled = false;
+                this.txtRoomId.Enabled = false;
+                this.txtServerUrl.Enabled = false;
+                this.btnStop.Enabled = true;
             }
             catch (Exception err)
             {
@@ -72,6 +76,7 @@ namespace MissileText.Server
         {
             this.labInfo.ForeColor = Color.Green;
             this.labInfo.Text = "已连接";
+            this.tmrReconnect.Stop();
             this.Open?.Invoke();
         }
 
@@ -84,7 +89,6 @@ namespace MissileText.Server
         {
             this.Message?.Invoke(Encoding.UTF8.GetString(e.RawData));
         }
-
         /// <summary>
         /// 出现错误
         /// </summary>
@@ -94,7 +98,6 @@ namespace MissileText.Server
         {
             this.Error?.Invoke(e.Message);
         }
-
         /// <summary>
         /// 关闭
         /// </summary>
@@ -102,8 +105,12 @@ namespace MissileText.Server
         /// <param name="e"></param>
         private void Wsc_OnClose(object sender, CloseEventArgs e)
         {
-            this.labInfo.ForeColor = Color.Red;
-            this.labInfo.Text = "未连接";
+            Action changeState = () => {
+                this.labInfo.ForeColor = Color.Red;
+                this.labInfo.Text = "连接断开,正在重连";
+                this.tmrReconnect.Start();
+            };
+            this.BeginInvoke(changeState);
             this.Close?.Invoke();
         }
         /// <summary>
@@ -113,6 +120,34 @@ namespace MissileText.Server
         public void SendMessage(String message)
         {
             this.wsc?.Send(message);
+        }
+        /// <summary>
+        /// 重连Timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmrReconnect_Tick(object sender, EventArgs e)
+        {
+            wsc.Connect();
+        }
+        /// <summary>
+        /// 停止
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if(this.wsc.ReadyState != WebSocketState.Closed)
+            {
+                this.wsc.Close();
+            }
+            this.tmrReconnect.Stop();
+            this.btnConnect.Enabled = true;
+            this.txtRoomId.Enabled = true;
+            this.txtServerUrl.Enabled = true;
+            this.btnStop.Enabled = false;
+            this.labInfo.ForeColor = Color.Red;
+            this.labInfo.Text = "未连接";
         }
     }
 }

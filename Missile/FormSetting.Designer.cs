@@ -85,14 +85,15 @@
             this.serverConnector1.Location = new System.Drawing.Point(12, 13);
             this.serverConnector1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.serverConnector1.Name = "serverConnector1";
-            this.serverConnector1.Size = new System.Drawing.Size(367, 89);
+            this.serverConnector1.Size = new System.Drawing.Size(522, 104);
             this.serverConnector1.TabIndex = 5;
+            this.serverConnector1.Message += new MissileText.Server.ServerConnector.onMessage(this.serverConnector_Message);
             // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 368);
+            this.ClientSize = new System.Drawing.Size(658, 362);
             this.Controls.Add(this.serverConnector1);
             this.Controls.Add(this.btnFullScreenTest);
             this.Controls.Add(this.btnImageTest);
