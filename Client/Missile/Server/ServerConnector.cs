@@ -106,8 +106,6 @@ namespace MissileText.Server
         private void Wsc_OnClose(object sender, CloseEventArgs e)
         {
             Action changeState = () => {
-                this.labInfo.ForeColor = Color.Red;
-                this.labInfo.Text = "连接断开,正在重连";
                 this.tmrReconnect.Start();
             };
             this.BeginInvoke(changeState);
@@ -128,6 +126,8 @@ namespace MissileText.Server
         /// <param name="e"></param>
         private void tmrReconnect_Tick(object sender, EventArgs e)
         {
+            this.labInfo.ForeColor = Color.Red;
+            this.labInfo.Text = "连接断开,正在重连";
             wsc.Connect();
         }
         /// <summary>
