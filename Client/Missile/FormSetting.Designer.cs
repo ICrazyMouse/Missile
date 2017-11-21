@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetting));
             this.btnToggleMissile = new System.Windows.Forms.Button();
             this.btnTextTest = new System.Windows.Forms.Button();
             this.btnImageTest = new System.Windows.Forms.Button();
             this.btnFullScreenTest = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.serverConnector1 = new Server.ServerConnector();
             this.SuspendLayout();
             // 
@@ -80,6 +82,12 @@
             this.btnFullScreenTest.UseVisualStyleBackColor = true;
             this.btnFullScreenTest.Click += new System.EventHandler(this.btnFullScreenTest_Click);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
+            // 
             // serverConnector1
             // 
             this.serverConnector1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -117,6 +125,7 @@
         private System.Windows.Forms.Button btnTextTest;
         private System.Windows.Forms.Button btnImageTest;
         private System.Windows.Forms.Button btnFullScreenTest;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
         private Server.ServerConnector serverConnector1;
     }
 }

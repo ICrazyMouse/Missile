@@ -1,4 +1,4 @@
-﻿namespace Missile.Server
+﻿namespace Server
 {
     partial class ServerConnector
     {

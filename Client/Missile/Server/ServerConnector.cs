@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
 
-namespace Missile.Server
+namespace Server
 {
     /// <summary>
     /// 服务器连接器
