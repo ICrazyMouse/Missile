@@ -85,8 +85,9 @@
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Text = "真稳弹幕";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // serverConnector1
             // 
@@ -115,6 +116,7 @@
             this.Name = "FormSetting";
             this.Text = "稳";
             this.Load += new System.EventHandler(this.FormSetting_Load);
+            this.Resize += new System.EventHandler(this.FormSetting_Resize);
             this.ResumeLayout(false);
 
         }

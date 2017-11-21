@@ -26,7 +26,8 @@
       <div class="mdl-grid">
         <div class="mdl-cell mdl-card mdl-shadow--4dp">
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">房间ID: 001TEST</h2>
+            <h2 class="mdl-card__title-text">房间ID:</h2>
+            <h2 id="roomId" class="mdl-card__title-text">001TEST</h2>
           </div>
           <div class="mdl-card__supporting-text">
             本页面发送弹幕会显示在房间ID相同的Windows客户端上.
@@ -53,14 +54,22 @@
     </main>
   </div>
   <script>
+    //获取url中的参数
+    function getUrlParam(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      var r = window.location.search.substr(1).match(reg); //匹配目标参数
+      if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
     $(document).ready(function () {
+      //设置roomId
+      $("#roomId").text(getUrlParam("roomId"));
       $("#btnSendText").click(function () {
         if ($("#sendText").val() === "") {
           $("#sendText").focus();
           return;
         }
         var data = {};
-        data.roomId = "001TEST";
+        data.roomId = $("#roomId").text();
         data.type = "producer";
         data.data = {};
         data.data.missileType = 0;
@@ -75,7 +84,7 @@
       });
       $("#btnSendImage").click(function () {
         var data = {};
-        data.roomId = "001TEST";
+        data.roomId = $("#roomId").text();
         data.type = "producer";
         data.data = {};
         data.data.missileType = 1;
@@ -91,7 +100,7 @@
       });
       $("#btnSendFSImage").click(function () {
         var data = {};
-        data.roomId = "001TEST";
+        data.roomId = $("#roomId").text();
         data.type = "producer";
         data.data = {};
         data.data.missileType = 2;

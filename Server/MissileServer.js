@@ -60,6 +60,9 @@ console.log("WebSocket Server Started Success. /missile:8181");
 const fs = require("fs");
 const http = require("http");
 var server = http.createServer(function (req, res) {
+    if(req.url.indexOf('?') != -1){
+        req.url = req.url.split("?")[0];
+    }
     try {
         if (req.url.startsWith("/static") && req.method === 'GET') {
             var file = fs.createReadStream("." + req.url);

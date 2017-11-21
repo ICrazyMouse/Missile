@@ -4,7 +4,6 @@ using Missile.Missile.Impl;
 using Missile.MissileController;
 using Missile.Utils;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Missile
@@ -74,6 +73,31 @@ namespace Missile
             };
             this.BeginInvoke(createMissile);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormSetting_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
+            else if(this.WindowState == FormWindowState.Normal)
+            {
+                this.ShowInTaskbar = true;
+            }
+        }
+        /// <summary>
+        /// 双击通知图标
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+        }
 
         #region TEST
         /// <summary>
@@ -111,5 +135,6 @@ namespace Missile
             this.missileController.SendMissile(fsImgMissile);
         }
         #endregion
+
     }
 }
