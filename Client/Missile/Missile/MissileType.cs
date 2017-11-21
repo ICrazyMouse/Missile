@@ -1,4 +1,4 @@
-﻿namespace MissileText.Missile
+﻿namespace Missile.Missile
 {
     //类型枚举
     public enum MISSILE_TYPE

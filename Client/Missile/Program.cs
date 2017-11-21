@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
-namespace MissileText
+namespace Missile
 {
     static class Program
     {
@@ -23,6 +21,25 @@ namespace MissileText
             //处理非UI线程异常   
             AppDomain.CurrentDomain.UnhandledException += (sender, error) => {
 
+            };
+            //扫描resources中的DLL
+            AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
+            {
+                AssemblyName assemToLoad = new AssemblyName(args.Name);
+                if (assemToLoad.Name == "websocket-sharp-with-proxy-support")
+                {
+                    Object obj = Properties.Resources.ResourceManager.GetObject(assemToLoad.Name.Replace("-", "_"));
+                    return Assembly.Load((byte[])obj);
+                }
+                else if (assemToLoad.Name == "Newtonsoft.Json")
+                {
+                    Object obj = Properties.Resources.ResourceManager.GetObject(assemToLoad.Name.Replace(".", "_"));
+                    return Assembly.Load((byte[])obj);
+                }
+                else
+                {
+                    return null;
+                }
             };
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormSetting());

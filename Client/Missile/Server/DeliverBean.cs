@@ -1,7 +1,7 @@
-﻿using MissileText.Missile;
+﻿using Missile.Missile;
 using System;
 
-namespace MissileText
+namespace Missile
 {
     /// <summary>
     /// 服务器交互对象

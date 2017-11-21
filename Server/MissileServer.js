@@ -10,7 +10,6 @@ var onMessage = function (message) {
     wss.broadcast(message);
 }
 var onConnect = function (ws, request) {
-    console.log('client connected, url：' + request.url);
     try {
         var params = request.url.split('?')[1];
         if (params) {
@@ -30,15 +29,12 @@ var onConnect = function (ws, request) {
             } else {
                 ws.send('No connected roomId, url：' + request.url + " CLOSE");
                 ws.close();
-                console.log('No connected roomId, url：' + request.url + " CLOSE");
             }
         } else {
             ws.send('No connected params, url：' + request.url + " CLOSE");
             ws.close();
-            console.log('No connected params, url：' + request.url + " CLOSE");
         }
     } catch (error) {
-        ws.close();
     }
 }
 wss.on('connection', onConnect);
@@ -52,12 +48,10 @@ wss.broadcast = function broadcast(message) {
                     && ws.type === 'consumer'
                     && data.roomId === ws.roomId) {
                     ws.send(JSON.stringify(data.data));
-                    console.log("已推送Room：" + ws.roomId);
                 }
             }
         });
     } catch (error) {
-        console.log("WS " + error);
     }
 };
 console.log("WebSocket Server Started Success. /missile:8181");
@@ -86,7 +80,6 @@ var server = http.createServer(function (req, res) {
             res.end("404 Not Found.");
         }
     } catch (error) {
-        console.log("HTTP " + error);
     }
 });
 server.listen('9090', function () {

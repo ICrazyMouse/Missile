@@ -1,4 +1,4 @@
-﻿namespace MissileText.Server
+﻿namespace Missile.Server
 {
     partial class ServerConnector
     {
@@ -36,11 +36,11 @@
             this.labInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gropSeverSetting = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtRoomId = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tmrReconnect = new System.Windows.Forms.Timer(this.components);
             this.btnStop = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tmrReconnect = new System.Windows.Forms.Timer(this.components);
             this.gropSeverSetting.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.txtServerUrl.Name = "txtServerUrl";
             this.txtServerUrl.Size = new System.Drawing.Size(229, 23);
             this.txtServerUrl.TabIndex = 1;
-            this.txtServerUrl.Text = "localhost:8181/missile";
+            this.txtServerUrl.Text = "missile.ws.yangdu.ren/missile";
             // 
             // btnConnect
             // 
@@ -123,38 +123,6 @@
             this.gropSeverSetting.TabStop = false;
             this.gropSeverSetting.Text = "服务器设置";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "房间ID:";
-            // 
-            // txtRoomId
-            // 
-            this.txtRoomId.Location = new System.Drawing.Point(143, 48);
-            this.txtRoomId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtRoomId.Name = "txtRoomId";
-            this.txtRoomId.Size = new System.Drawing.Size(204, 23);
-            this.txtRoomId.TabIndex = 8;
-            this.txtRoomId.Text = "001";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(76, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "roomId=";
-            // 
-            // tmrReconnect
-            // 
-            this.tmrReconnect.Interval = 5000;
-            this.tmrReconnect.Tick += new System.EventHandler(this.tmrReconnect_Tick);
-            // 
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.Color.Red;
@@ -168,6 +136,38 @@
             this.btnStop.Text = "停止";
             this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(76, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "roomId=";
+            // 
+            // txtRoomId
+            // 
+            this.txtRoomId.Location = new System.Drawing.Point(143, 48);
+            this.txtRoomId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtRoomId.Name = "txtRoomId";
+            this.txtRoomId.Size = new System.Drawing.Size(204, 23);
+            this.txtRoomId.TabIndex = 8;
+            this.txtRoomId.Text = "001TEST";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "房间ID:";
+            // 
+            // tmrReconnect
+            // 
+            this.tmrReconnect.Interval = 5000;
+            this.tmrReconnect.Tick += new System.EventHandler(this.tmrReconnect_Tick);
             // 
             // ServerConnector
             // 

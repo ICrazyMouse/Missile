@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace MissileText.Render
+namespace Missile.Render
 {
     class GDIRender
     {

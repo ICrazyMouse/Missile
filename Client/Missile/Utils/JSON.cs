@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MissileText.Utils
+namespace Missile.Utils
 {
     class JSON
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace MissileText.Missile.Api
+namespace Missile.Missile.Api
 {
     public interface IMissile
     {

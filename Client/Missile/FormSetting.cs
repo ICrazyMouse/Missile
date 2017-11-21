@@ -1,13 +1,13 @@
-﻿using MissileText.Missile;
-using MissileText.Missile.Api;
-using MissileText.Missile.Impl;
-using MissileText.MissileController;
-using MissileText.Utils;
+﻿using Missile.Missile;
+using Missile.Missile.Api;
+using Missile.Missile.Impl;
+using Missile.MissileController;
+using Missile.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissileText
+namespace Missile
 {
     public partial class FormSetting : Form
     {
@@ -45,7 +45,7 @@ namespace MissileText
         /// <param name="e"></param>
         private void FormSetting_Load(object sender, EventArgs e)
         {
-
+            this.btnToggleMissile.PerformClick();
         }
         /// <summary>
         /// 分发Message

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace MissileText.Missile.Impl
+namespace Missile.Missile.Impl
 {
     class TextMissile : BaseMissile
     {

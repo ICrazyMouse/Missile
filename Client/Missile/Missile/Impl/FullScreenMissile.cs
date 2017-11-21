@@ -1,4 +1,4 @@
-﻿using MissileText.Utils;
+﻿using Missile.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MissileText.Missile.Impl
+namespace Missile.Missile.Impl
 {
     class FullScreenMissile : BaseMissile
     {

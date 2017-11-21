@@ -1,4 +1,4 @@
-﻿namespace MissileText
+﻿namespace Missile
 {
     partial class FormSetting
     {
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetting));
             this.btnToggleMissile = new System.Windows.Forms.Button();
             this.btnTextTest = new System.Windows.Forms.Button();
             this.btnImageTest = new System.Windows.Forms.Button();
             this.btnFullScreenTest = new System.Windows.Forms.Button();
-            this.serverConnector1 = new MissileText.Server.ServerConnector();
+            this.serverConnector1 = new Server.ServerConnector();
             this.SuspendLayout();
             // 
             // btnToggleMissile
@@ -87,7 +88,7 @@
             this.serverConnector1.Name = "serverConnector1";
             this.serverConnector1.Size = new System.Drawing.Size(522, 104);
             this.serverConnector1.TabIndex = 5;
-            this.serverConnector1.Message += new MissileText.Server.ServerConnector.onMessage(this.serverConnector_Message);
+            this.serverConnector1.Message += new Server.ServerConnector.onMessage(this.serverConnector_Message);
             // 
             // FormSetting
             // 
@@ -101,9 +102,10 @@
             this.Controls.Add(this.btnToggleMissile);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormSetting";
-            this.Text = "SettingForm";
+            this.Text = "稳";
             this.Load += new System.EventHandler(this.FormSetting_Load);
             this.ResumeLayout(false);
 

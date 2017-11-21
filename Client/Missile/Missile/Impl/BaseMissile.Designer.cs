@@ -1,4 +1,4 @@
-﻿namespace MissileText.Missile.Impl
+﻿namespace Missile.Missile.Impl
 {
     partial class BaseMissile
     {

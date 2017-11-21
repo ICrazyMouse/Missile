@@ -1,12 +1,12 @@
-﻿using MissileText.Missile;
-using MissileText.Missile.Api;
-using MissileText.Render;
+﻿using Missile.Missile;
+using Missile.Missile.Api;
+using Missile.Render;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MissileText.MissileController
+namespace Missile.MissileController
 {
     public class NormalMissileController : Form, IMissileController
     {

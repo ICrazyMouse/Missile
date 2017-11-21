@@ -1,7 +1,7 @@
 ﻿
-using MissileText.Missile.Api;
+using Missile.Missile.Api;
 
-namespace MissileText.MissileController
+namespace Missile.MissileController
 {
     interface IMissileController
     {

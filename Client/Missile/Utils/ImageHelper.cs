@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.IO;
 
-namespace MissileText.Utils
+namespace Missile.Utils
 {
     public class ImageHelper
     {
@@ -13,6 +13,7 @@ namespace MissileText.Utils
         /// <returns></returns>
         public static Image Base64ToImage(String base64)
         {
+            if (base64 == null) return new Bitmap(1,1);
             byte[] bytes = Convert.FromBase64String(base64);
             using (MemoryStream ms = new MemoryStream(bytes))
             {

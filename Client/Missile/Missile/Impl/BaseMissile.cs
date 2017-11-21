@@ -1,11 +1,11 @@
-﻿using MissileText.Missile.Api;
-using MissileText.Render;
+﻿using Missile.Missile.Api;
+using Missile.Render;
 using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MissileText.Missile.Impl
+namespace Missile.Missile.Impl
 {
     public abstract partial class BaseMissile : Form, IMissile
     {

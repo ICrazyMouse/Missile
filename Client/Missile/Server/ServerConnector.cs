@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
 
-namespace MissileText.Server
+namespace Missile.Server
 {
     /// <summary>
     /// 服务器连接器
@@ -55,7 +56,10 @@ namespace MissileText.Server
                 wsc.OnOpen += Wsc_OnOpen;
                 wsc.OnError += Wsc_OnError;
                 wsc.OnClose += Wsc_OnClose;
-                wsc.Connect();
+                wsc.Log.Level = LogLevel.Fatal;
+                Task.Run(()=> {
+                    wsc.Connect();
+                });
                 this.btnConnect.Enabled = false;
                 this.txtRoomId.Enabled = false;
                 this.txtServerUrl.Enabled = false;
@@ -74,10 +78,14 @@ namespace MissileText.Server
         /// <param name="e"></param>
         private void Wsc_OnOpen(object sender, EventArgs e)
         {
-            this.labInfo.ForeColor = Color.Green;
-            this.labInfo.Text = "已连接";
-            this.tmrReconnect.Stop();
-            this.Open?.Invoke();
+            Action open = () =>
+            {
+                this.labInfo.ForeColor = Color.Green;
+                this.labInfo.Text = "已连接";
+                this.tmrReconnect.Stop();
+                this.Open?.Invoke();
+            };
+            this.BeginInvoke(open);
         }
 
         /// <summary>
@@ -105,7 +113,8 @@ namespace MissileText.Server
         /// <param name="e"></param>
         private void Wsc_OnClose(object sender, CloseEventArgs e)
         {
-            Action changeState = () => {
+            Action changeState = () =>
+            {
                 this.tmrReconnect.Start();
             };
             this.BeginInvoke(changeState);
@@ -128,7 +137,10 @@ namespace MissileText.Server
         {
             this.labInfo.ForeColor = Color.Red;
             this.labInfo.Text = "连接断开,正在重连";
-            wsc.Connect();
+            Task.Run(() =>
+            {
+                wsc.Connect();
+            });
         }
         /// <summary>
         /// 停止
@@ -137,7 +149,7 @@ namespace MissileText.Server
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if(this.wsc.ReadyState != WebSocketState.Closed)
+            if (this.wsc.ReadyState != WebSocketState.Closed)
             {
                 this.wsc.Close();
             }
