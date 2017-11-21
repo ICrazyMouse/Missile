@@ -60,14 +60,22 @@ console.log("WebSocket Server Started Success. /missile:8181");
 const fs = require("fs");
 const http = require("http");
 var server = http.createServer(function (req, res) {
-    if(req.url.indexOf('?') != -1){
+    if (req.url.indexOf('?') != -1) {
         req.url = req.url.split("?")[0];
     }
     try {
         if (req.url.startsWith("/static") && req.method === 'GET') {
-            var file = fs.createReadStream("." + req.url);
-            res.writeHead(200);
-            file.pipe(res);
+            var filePath = "." + req.url;
+            fs.stat(filePath, (err, stats) => {
+                if (!err && stats.isFile()) {
+                    var file = fs.createReadStream("." + req.url);
+                    res.writeHead(200);
+                    file.pipe(res);
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'text/html;charset=utf8' });
+                    res.end("404 Not Found.");
+                }
+            });
         } else if (req.url === '/send' && req.method === 'POST') {
             var body = '';
             req.on('data', function (chunk) {
