@@ -1,0 +1,35 @@
+[2017-11-22T11:01:15.876] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:27:06.298] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:27:06.305] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:27:18.602] [INFO] missile - Yes
+[2017-11-22T11:27:53.032] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:27:53.036] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:27:59.582] [INFO] missile - WSS广播消息: type:producer roomId: missileType:1 missileText: missileImage:Yes
+[2017-11-22T11:28:26.696] [INFO] missile - WSS广播消息: type:producer roomId: missileType:0 missileText:dsadsadsadas missileImage:No
+[2017-11-22T11:29:14.901] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:29:14.907] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:29:33.257] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:29:33.259] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:29:55.590] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:30:01.398] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:30:16.428] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:30:29.014] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:30:52.546] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:30:56.617] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:31:28.041] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:33:16.253] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:33:16.262] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:33:16.535] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:33:16.536] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:33:21.438] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:33:32.719] [INFO] missile - Total Clients Count:undefined
+[2017-11-22T11:33:47.837] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:34:14.491] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:34:14.502] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:34:18.023] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:38:48.894] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T11:38:48.900] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T11:38:49.875] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:38:49.876] [INFO] missile - Total Clients Count:1
+[2017-11-22T11:39:04.722] [INFO] missile - New Client Connected, url:/missile?roomId=001TEST&type=consumer
+[2017-11-22T11:39:04.723] [INFO] missile - Total Clients Count:1
