@@ -1,3 +1,18 @@
+//LOG
+var log4js = require('log4js');
+log4js.configure({
+    appenders: {
+        missile: {
+            type: 'file',
+            filename: './logs/access.log',
+            maxLogSize: 1024 * 1024 * 10,//一个文件的大小，超出后会自动新生成一个文件 1024 * 1024 * 10 = 10MB
+            backups: 3,//备份的文件数量
+        }
+    },
+    replaceConsole: true,
+    categories: { default: { appenders: ['missile'], level: 'INFO' } }
+});
+var logger = log4js.getLogger('missile');
 //WS
 const WebSocket = require('ws');
 const WebSocketServer = WebSocket.Server;
@@ -26,23 +41,33 @@ var onConnect = function (ws, request) {
                 ws.type = type;
                 ws.roomId = roomId;
                 ws.on('message', onMessage);
+                logger.info("New Client Connected, url:" + request.url);
+                logger.info("Total Clients Count:" + wss.clients.size);
             } else {
                 ws.send('No connected roomId, url：' + request.url + " CLOSE");
+                logger.info('No connected roomId, url：' + request.url + " CLOSE");
                 ws.close();
             }
         } else {
             ws.send('No connected params, url：' + request.url + " CLOSE");
+            logger.info('No connected params, url：' + request.url + " CLOSE");
             ws.close();
         }
     } catch (error) {
+        logger.error("WSS连接异常:"+error);
     }
 }
 wss.on('connection', onConnect);
 wss.broadcast = function broadcast(message) {
     try {
+        var data = JSON.parse(message);
+        logger.info("WSS广播消息: type:" + data.type 
+            + " roomId:" + data.roomId 
+            + " missileType:" + data.data.missileType 
+            + " missileText:" + data.data.text
+            + " missileImage:" + (data.data.base64Img ? "Yes":"No"));
         wss.clients.forEach(function each(ws) {
             if (ws.readyState === WebSocket.OPEN) {
-                var data = JSON.parse(message);
                 //producer的消息发送给consumer
                 if (data.type === 'producer'
                     && ws.type === 'consumer'
@@ -52,9 +77,11 @@ wss.broadcast = function broadcast(message) {
             }
         });
     } catch (error) {
+        logger.error("WSS广播异常:"+error);
     }
 };
 console.log("WebSocket Server Started Success. /missile:8181");
+logger.info("WebSocket Server Started Success. /missile:8181");
 
 //HTTP
 const fs = require("fs");
@@ -91,8 +118,10 @@ var server = http.createServer(function (req, res) {
             res.end("404 Not Found.");
         }
     } catch (error) {
+        logger.error("HTTP异常:"+error);
     }
 });
 server.listen('9090', function () {
     console.log("Http Server Started Success. 9090");
+    logger.info("Http Server Started Success. 9090");
 });
