@@ -104,6 +104,7 @@ var server = http.createServer(function (req, res) {
                 }
             });
         } else if (req.url === '/send' && req.method === 'POST') {
+            //发送弹幕
             var body = '';
             req.on('data', function (chunk) {
                 body += chunk;
@@ -113,6 +114,19 @@ var server = http.createServer(function (req, res) {
             });
             res.writeHead(200, { 'Content-Type': 'text/html;charset=utf8' });
             res.end("请求成功");
+        } else if (req.url === '/imgToBase64' && req.method === 'POST') {
+            //图片转Base64
+            var body = [];
+            var dataSize = 0;
+            req.on('data', function (chunk) {
+                body.push(chunk);
+                dataSize += chunk.length;
+            });
+            req.on('end', function () {
+                var base64 = Buffer.concat(body, dataSize).toString('base64');
+                res.writeHead(200, { 'Content-Type': 'text/html;charset=utf8' });
+                res.end(base64);
+            });
         } else {
             res.writeHead(404, { 'Content-Type': 'text/html;charset=utf8' });
             res.end("404 Not Found.");
