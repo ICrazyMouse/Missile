@@ -29,7 +29,7 @@ public class WSBroadcastController {
      */
     @ApiOperation(value = "广播消息")
     @ApiImplicitParam(name = "message", value = "消息体", required = true, dataType = "BroadcastMessage")
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/broadcast", method = RequestMethod.POST)
     public Result postUser(@RequestBody BroadcastMessage message) {
         //广播
         MissileWebSocketHandler.broadcast(JSON.toJSONString(message));

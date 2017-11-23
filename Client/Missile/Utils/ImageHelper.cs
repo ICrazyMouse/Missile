@@ -31,7 +31,7 @@ namespace Missile.Utils
         {
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("url");
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
                 request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
                 WebResponse wp = request.GetResponse();

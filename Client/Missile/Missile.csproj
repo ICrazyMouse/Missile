@@ -121,7 +121,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Render\GDIRender.cs" />
-    <Compile Include="Server\DeliverBean.cs" />
+    <Compile Include="Server\MissileMessage.cs" />
     <Compile Include="Missile\MissileType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
