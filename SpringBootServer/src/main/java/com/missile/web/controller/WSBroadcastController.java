@@ -33,6 +33,6 @@ public class WSBroadcastController {
     public Result postUser(@RequestBody BroadcastMessage message) {
         //广播
         MissileWebSocketHandler.broadcast(JSON.toJSONString(message));
-        return Result.SuccessResult("广播成功");
+        return Result.SuccessResult("发送成功");
     }
 }

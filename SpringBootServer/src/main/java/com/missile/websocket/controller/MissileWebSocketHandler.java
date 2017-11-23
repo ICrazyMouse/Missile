@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * WS服务器
  */
 @Component
-@ServerEndpoint(value = "/missile")
+@ServerEndpoint(value = "/ws/missile")
 @SuppressWarnings("unused")
 public class MissileWebSocketHandler {
     //日志
@@ -34,6 +34,10 @@ public class MissileWebSocketHandler {
 
     private static final String TYPE_PRODUCER = "producer";
     private static final String TYPE_CONSUMER = "consumer";
+
+    public MissileWebSocketHandler() {
+        System.out.println("WebScoket Server Start Success Endpoint: /ws/missile");
+    }
 
     /**
      * 连接建立
