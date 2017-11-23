@@ -55,18 +55,18 @@ namespace Missile
             Console.WriteLine("Recive New Missile");
             Action createMissile = () =>
             {
-                DeliverBean bean = JSON.toObject<DeliverBean>(message);
+                MissileMessage bean = JSON.toObject<MissileMessage>(message);
                 IMissile missile = null;
                 switch (bean.missileType)
                 {
                     case MISSILE_TYPE.TEXT:
-                        missile = new TextMissile(bean.text);
+                        missile = new TextMissile(bean.missileText);
                         break;
                     case MISSILE_TYPE.IMAGE:
-                        missile = new ImageMissile(bean.base64Img);
+                        missile = new ImageMissile(bean.missileImgUrl);
                         break;
                     case MISSILE_TYPE.FS_IMAGE:
-                        missile = new FullScreenMissile(bean.base64Img, bean.text);
+                        missile = new FullScreenMissile(bean.missileImgUrl, bean.missileText);
                         break;
                 }
                 this.missileController.SendMissile(missile);

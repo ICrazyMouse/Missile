@@ -1,0 +1,30 @@
+[2017-11-22T15:37:10.923] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T15:37:10.930] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T15:37:22.351] [INFO] missile - WSS广播消息: type:producer roomId:001TEST missileType:0 missileText:HELLO WORLD! missileImage:Yes
+[2017-11-22T15:41:27.403] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T15:41:27.410] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T15:41:38.952] [INFO] missile - WSS广播消息: type:producer roomId:001TEST missileType:0 missileText:HELLO WORLD! missileImage:Yes
+[2017-11-22T16:24:11.139] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:24:11.155] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:26:54.697] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:26:54.712] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:27:42.927] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:27:42.942] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:27:55.829] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:27:55.847] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:29:58.454] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:29:58.467] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:30:55.340] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:30:55.356] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:31:22.663] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:31:22.677] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:33:10.321] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:33:10.339] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:34:33.436] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:34:33.450] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:36:10.869] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:36:10.885] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:53:26.873] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:53:26.887] [INFO] missile - Http Server Started Success. 9090
+[2017-11-22T16:55:15.391] [INFO] missile - WebSocket Server Started Success. /missile:8181
+[2017-11-22T16:55:15.408] [INFO] missile - Http Server Started Success. 9090

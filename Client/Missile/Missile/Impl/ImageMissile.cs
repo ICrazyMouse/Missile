@@ -17,8 +17,8 @@ namespace Missile.Missile.Impl
         /// <summary>
         /// 构造函数 传入base64字符串
         /// </summary>
-        /// <param name="base64"></param>
-        public ImageMissile(String base64) : this(ImageHelper.Base64ToImage(base64)){ }
+        /// <param name="url"></param>
+        public ImageMissile(String url) : this(ImageHelper.fetchUrlImage(url)){ }
         /// <summary>
         /// 构造函数 传入Image对象
         /// </summary>

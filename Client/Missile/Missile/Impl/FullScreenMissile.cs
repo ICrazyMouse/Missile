@@ -20,9 +20,9 @@ namespace Missile.Missile.Impl
         /// <summary>
         /// 构造函数，Base64字符串
         /// </summary>
-        /// <param name="base64Img"></param>
+        /// <param name="url"></param>
         /// <param name="title"></param>
-        public FullScreenMissile(String base64Img, String title = null) : this(ImageHelper.Base64ToImage(base64Img), title) { }
+        public FullScreenMissile(String url, String title = null) : this(ImageHelper.fetchUrlImage(url), title) { }
         /// <summary>
         /// 构造函数 传入image对象
         /// </summary>

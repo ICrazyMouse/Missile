@@ -51,7 +51,7 @@ namespace Server
                     return;
                 }
                 this.labServerUrlText.ForeColor = Color.Black;
-                wsc = new WebSocket("wss://" + this.txtServerUrl.Text + "?roomId=" + txtRoomId.Text + "&type=consumer");
+                wsc = new WebSocket("ws://" + this.txtServerUrl.Text + "?roomId=" + txtRoomId.Text + "&type=consumer");
                 wsc.OnMessage += Wsc_OnMessage;
                 wsc.OnOpen += Wsc_OnOpen;
                 wsc.OnError += Wsc_OnError;
@@ -115,6 +115,10 @@ namespace Server
         {
             Action changeState = () =>
             {
+                if(this.btnConnect.Enabled == true)
+                {
+                    return;
+                }
                 this.tmrReconnect.Start();
             };
             this.BeginInvoke(changeState);

@@ -60,7 +60,7 @@
             this.txtServerUrl.Name = "txtServerUrl";
             this.txtServerUrl.Size = new System.Drawing.Size(229, 23);
             this.txtServerUrl.TabIndex = 1;
-            this.txtServerUrl.Text = "missile.ws.yangdu.ren/missile";
+            this.txtServerUrl.Text = "localhost:8080/missile";
             // 
             // btnConnect
             // 
