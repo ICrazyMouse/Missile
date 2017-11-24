@@ -1,6 +1,6 @@
-package com.missile.web.controller;
+package com.missile.http.controller;
 
-import com.missile.web.params.response.Result;
+import com.missile.http.params.response.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

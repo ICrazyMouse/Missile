@@ -1,4 +1,4 @@
-package com.missile.web.params.request;
+package com.missile.http.params.request;
 
 import com.missile.websocket.bean.ProducerWSMessage;
 

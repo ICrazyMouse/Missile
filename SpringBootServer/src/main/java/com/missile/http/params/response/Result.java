@@ -1,4 +1,4 @@
-package com.missile.web.params.response;
+package com.missile.http.params.response;
 
 /**
  * Created by Mario on 2017/9/26.
