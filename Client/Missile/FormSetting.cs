@@ -63,10 +63,16 @@ namespace Missile
                         missile = new TextMissile(bean.missileText);
                         break;
                     case MISSILE_TYPE.IMAGE:
-                        missile = new ImageMissile(bean.missileImgUrl);
+                        if (this.cbxAllowImage.Checked)
+                        {
+                            missile = new ImageMissile(bean.missileImgUrl);
+                        }
                         break;
                     case MISSILE_TYPE.FS_IMAGE:
-                        missile = new FullScreenMissile(bean.missileImgUrl, bean.missileText);
+                        if (this.cbxAllowFullScreen.Checked)
+                        {
+                            missile = new FullScreenMissile(bean.missileImgUrl, bean.missileText);
+                        }
                         break;
                 }
                 this.missileController.SendMissile(missile);

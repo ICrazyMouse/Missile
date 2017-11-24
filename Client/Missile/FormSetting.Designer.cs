@@ -36,15 +36,17 @@
             this.btnFullScreenTest = new System.Windows.Forms.Button();
             this.btnImageTest = new System.Windows.Forms.Button();
             this.btnTextTest = new System.Windows.Forms.Button();
+            this.cbxAllowImage = new System.Windows.Forms.CheckBox();
+            this.cbxAllowFullScreen = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnToggleMissile
             // 
             this.btnToggleMissile.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnToggleMissile.Location = new System.Drawing.Point(12, 125);
+            this.btnToggleMissile.Location = new System.Drawing.Point(93, 125);
             this.btnToggleMissile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnToggleMissile.Name = "btnToggleMissile";
-            this.btnToggleMissile.Size = new System.Drawing.Size(522, 74);
+            this.btnToggleMissile.Size = new System.Drawing.Size(441, 74);
             this.btnToggleMissile.TabIndex = 0;
             this.btnToggleMissile.Text = "打开弹幕";
             this.btnToggleMissile.UseVisualStyleBackColor = true;
@@ -100,11 +102,37 @@
             this.btnTextTest.UseVisualStyleBackColor = true;
             this.btnTextTest.Click += new System.EventHandler(this.btnTextTest_Click);
             // 
+            // cbxAllowImage
+            // 
+            this.cbxAllowImage.AutoSize = true;
+            this.cbxAllowImage.Checked = true;
+            this.cbxAllowImage.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxAllowImage.Location = new System.Drawing.Point(12, 137);
+            this.cbxAllowImage.Name = "cbxAllowImage";
+            this.cbxAllowImage.Size = new System.Drawing.Size(51, 21);
+            this.cbxAllowImage.TabIndex = 6;
+            this.cbxAllowImage.Text = "图片";
+            this.cbxAllowImage.UseVisualStyleBackColor = true;
+            // 
+            // cbxAllowFullScreen
+            // 
+            this.cbxAllowFullScreen.AutoSize = true;
+            this.cbxAllowFullScreen.Checked = true;
+            this.cbxAllowFullScreen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxAllowFullScreen.Location = new System.Drawing.Point(12, 165);
+            this.cbxAllowFullScreen.Name = "cbxAllowFullScreen";
+            this.cbxAllowFullScreen.Size = new System.Drawing.Size(51, 21);
+            this.cbxAllowFullScreen.TabIndex = 7;
+            this.cbxAllowFullScreen.Text = "霸屏";
+            this.cbxAllowFullScreen.UseVisualStyleBackColor = true;
+            // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 205);
+            this.Controls.Add(this.cbxAllowFullScreen);
+            this.Controls.Add(this.cbxAllowImage);
             this.Controls.Add(this.serverConnector1);
             this.Controls.Add(this.btnFullScreenTest);
             this.Controls.Add(this.btnImageTest);
@@ -121,6 +149,7 @@
             this.Load += new System.EventHandler(this.FormSetting_Load);
             this.Resize += new System.EventHandler(this.FormSetting_Resize);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +161,7 @@
         private System.Windows.Forms.Button btnFullScreenTest;
         private System.Windows.Forms.Button btnImageTest;
         private System.Windows.Forms.Button btnTextTest;
+        private System.Windows.Forms.CheckBox cbxAllowImage;
+        private System.Windows.Forms.CheckBox cbxAllowFullScreen;
     }
 }
